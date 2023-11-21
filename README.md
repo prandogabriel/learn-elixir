@@ -141,19 +141,27 @@ Para mudar o valor de total o que fazemos é mudar sua referência, como mostrad
 
 Em Elixir, as listas são estruturas de dados encadeadas e imutáveis. Isso significa que uma lista é uma sequência de elementos, onde cada elemento contém um valor e uma referência ao próximo elemento na lista. Aqui estão alguns pontos-chave sobre as listas em Elixir:
 
-### Estrutura de Lista Encadeada:
+- **Sintaxe:** Representada por colchetes `[ ]`.
+- **Exemplo:**
+  ```elixir
+  lista = [1, 2, 3]
+  nova_lista = [0 | lista]  # Adicionando 0 no início
+  ```
+
+
+#### Estrutura de Lista Encadeada:
 
 - **Encadeamento Linear:** Os elementos de uma lista são organizados linearmente, com cada elemento apontando para o próximo. A última célula geralmente aponta para um valor especial, indicando o final da lista.
 
 - **Imutabilidade:** As listas em Elixir são imutáveis, o que significa que, uma vez criada, uma lista não pode ser modificada. Operações que parecem modificar uma lista na verdade criam uma nova lista com as alterações desejadas.
 
-### Adição de Elementos:
+#### Adição de Elementos:
 
 - **Barato para Adicionar no Início:** Adicionar um elemento ao início de uma lista é uma operação de tempo constante (O(1)), tornando-a eficiente. Isso ocorre porque a nova lista criada aponta para a lista original, sem a necessidade de copiar todos os elementos.
 
 - **Custo Elevado para Adicionar no Final:** Adicionar um elemento ao final de uma lista requer percorrer toda a lista existente, resultando em um custo proporcional ao tamanho da lista (O(n)), onde "n" é o número de elementos na lista. Isso ocorre porque uma nova célula precisa ser criada para o novo elemento e todas as outras células precisam ser copiadas para a nova lista.
 
-### Exemplo:
+#### Exemplo:
 
 ```elixir
 # Adicionando no início (eficiente)
@@ -164,4 +172,28 @@ lista_original = [1, 2, 3, 4]
 nova_lista = lista_original ++ [5]
 ```
 
-A preferência por adicionar elementos no início é uma característica importante ao lidar com listas em Elixir, especialmente em situações em que a performance é crucial. Se a ordem dos elementos não importar, adicionar no início é uma escolha mais eficiente. Se a ordem é importante e a adição frequente de elementos ao final é necessária, outras estruturas de dados, como mapas ou conjuntos, podem ser mais adequadas.
+A preferência por adicionar elementos no início é uma característica importante ao lidar com listas em Elixir, especialmente em situações em que a performance é crucial. Se a ordem dos elementos não importar, adicionar no início é uma escolha mais eficiente. Se a ordem é importante e a adição frequente de elementos ao final é necessária, outras estruturas de dados, como mapas ou conjuntos, podem ser mais adequadas.*
+
+
+## **Tuplas**
+
+- **Sintaxe:** Representada por chaves `{ }`.
+- **Acesso aos Elementos:** Os elementos são acessados por índice.
+
+- **Exemplo:**
+  ```elixir
+  tupla = {1, "hello", :world}
+  primeiro_elemento = elem(tupla, 0)  # Acessando o primeiro elemento
+  ```
+
+**Diferenças Principais entre lista e tupla:**
+
+1. **Acesso aos Elementos:**
+   - **Lista:** Pode ser acessada por padrão ou através de funções como `hd` e `tl`.
+   - **Tupla:** Acesso por índice usando a função `elem`.
+
+2. **Uso:**
+   - **Lista:** Usada quando a ordem dos elementos é importante e a manipulação frequente envolve adição/remoção no início.
+   - **Tupla:** Usada quando a ordem e a quantidade de elementos são fixas e quando é necessário acessar elementos por índice.
+
+Escolha entre lista e tupla dependerá do contexto específico e dos requisitos do problema que você está resolvendo em Elixir.
