@@ -87,3 +87,22 @@ defmodule Matematica do
   def quadrado(x), do: x * x
 end
 ```
+
+### Diferença pra OO
+Em OO sempre vemos objetos e objetos podem ter métodos, como por exemplo:
+```js
+const a = "gabriel"
+
+a.UpperCase();
+// GABRIEL
+// nesse caso a string A tem um método upper case
+```
+
+Já em programação funcional não temos esse tipo de abordagem, temos que chamar uma função que faria isso, algo como:
+
+```elixir
+a = "gabriel"
+
+String.upcase(a)
+# GABRIEL
+```
